@@ -165,7 +165,7 @@ function createComposite($dataArgs, $dataType) {  // create individual image lay
                    . " "
                    . $argString
                    . " "
-                   . $dataType;        // imagemagick cannot read from subdirs, hence "cd images/""
+                   . $dataType;
     return $magickCommand;
 }
 
