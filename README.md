@@ -10,8 +10,10 @@ Some [examples](images/samples/):
 ![ScreenShot](images/samples/winamp.gif)  
 ![ScreenShot](images/samples/vaporwave.gif)  
 ![ScreenShot](images/samples/widget.gif)  
-
-
+  
+  
+Requires imagemagick (convert) to be installed on your server.  
+  
 Setup is simple. Get a free API key from [OpenWeatherMap](https://openweathermap.org/) then edit the settings in wu_widget.php and display_widget.php if appplicable. The source is fully commented to guide you in setup. It should only take a few minutes to get running.  
 
 This software is neither created nor endorsed by Weather Underground or OpenWeatherMap.
