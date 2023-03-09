@@ -1,0 +1,1 @@
+Temperature: 47  Humidity: 48  Wind speed: 9.22  Feels like: 42.4  

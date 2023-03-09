@@ -1,0 +1,98 @@
+Technical breakdown of the specifications of the image.
+The image was created to the exact specs as the original,
+including the slight flicker on the first frame of the background image.
+This is entirely intentional.
+There's a lot going on in this tiny image, so let's reverse engineer
+how it works.
+
+An image with F and C temperatures and time is 6.90 seconds total,
+This type has 7 images which consist of a static background with 6 frames.
+The original image used a static background and each layer was an overlay,
+but the method we're using will create 7 unique layers instead.
+This increases the file size slightly to approximately 17kB where the originals
+were 2.8kB. Most of us are (probably?) not using dialup anymore, so... shouldn't matter.
+The resulting image is visually identical including the quirks of the flicker at the 
+beginning. This 7-frame image is the only type of image we're going to generate.
+
+If we inspect an original gif file we will see:
+
+Frame delay data from exiftool (# is my annotation):
+    Graphic Control: delay=0.00               # background
+    Image: left=0 top=0 width=127 height=41
+    Graphic Control: delay=2.00               # temperature in F
+    Image: left=12 top=8 width=50 height=20
+    Graphic Control: delay=0.30               # background w/ dim LED display
+    Image: left=12 top=8 width=50 height=20
+    Graphic Control: delay=2.00               # temperature in C
+    Image: left=12 top=8 width=50 height=20
+    Graphic Control: delay=0.30               # background w/ dim LED display
+    Image: left=12 top=8 width=50 height=20
+    Graphic Control: delay=2.00               # time
+    Image: left=12 top=8 width=50 height=20
+    Graphic Control: delay=0.30               # background w/ dim LED display
+    Image: left=12 top=8 width=50 height=20
+      FrameCount = 7
+      Duration = 6.9
+
+The total duration of the entire animation is 6.9 seconds.
+Data/info frames last 2 seconds, "dimmed" display lasts 0.3 seconds between data frames.
+
+Frame sequences explained:
+1 background  (no LED segments visible on display, just a black display)
+2 temperature in Fahrenheit
+3 dimmed display (un-illuminated segments visible instead of black)
+4 temperature in Celsius
+5 dimmed display
+6 time
+7 dimmed display
+
+
+SIZES & POSITIONS:
+Entire image is 127 x 41px.
+
+The first digit (just the dimmed out "1") starts 13px from the left,
+all digits start 11px from top of image.
+
+Counting from the left, these are the digits and their starting locations,
+with "place1" being the leftmost digit:
+
+place1 = +13+11
+place2 = +23+11
+place3 = +33+11
+place4 = +43+11
+place5 = +53+11
+
+Note that "place1" is only ever supposed to be used for a "1" in the time, like 12:03.
+I can't find examples of how it worked (have one? please share),
+but it's possible the "-" appeared over this segment as well if the temp was negative
+double-digits (-22 F) since that would require 5 LED segments.
+For the purpose of this software we'll assume that's how it worked.
+Also it should be mentioned the "-" is not an original font, but it was created how it
+probably looked as it conforms to the segment (99% certain). All other fonts were
+taken from existing old images.
+
+Example #1 for imagemagick which places a colon on the second LED segment:
+convert dim_full.png colon.png -geometry +23+11 -composite output.png
+
+Example #2:
+convert dim_full.png \
+   4.png -geometry +23+11 -composite \
+   5.png -geometry +33+11 -composite \
+   F.png -geometry +53+11 -composite \
+   output.png
+
+Will produce: '45 F' in the four rightmost segments (count the space as 1).
+The F or C is always separated by a space (we use blank.png though not necessary) from the temperature.
+
+
+Or, explained in a different way (as oriented from the right-hand side):
+
+LED panel starts 12px from left, 8px from top, 13px from bottom, 65px from right.
+LED panel dimensions are: 50 x 20 px.
+
+Digits are 8 x 14 px.
+Digits are 3px from top and bottom of LED panel.
+Rightmost digit starts 1px from right edge of LED panel.
+Each digit has 2px spacing.
+
+
