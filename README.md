@@ -7,10 +7,10 @@ Some [examples](images/samples/):
 ![ScreenShot](images/samples/geometry.gif)  
 ![ScreenShot](images/samples/cyberspace.gif)  
 ![ScreenShot](images/samples/Memphis_Design.gif)  
+![ScreenShot](images/samples/rainbow_matrix.gif)  
 ![ScreenShot](images/samples/winamp.gif)  
 ![ScreenShot](images/samples/vaporwave.gif)  
 ![ScreenShot](images/samples/widget.gif)  
-![ScreenShot](images/samples/rainbow_matrix.gif)  
 ![ScreenShot](images/samples/Cosmic_Cutie.gif)  
   
   
