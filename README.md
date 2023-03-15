@@ -10,6 +10,8 @@ Some [examples](images/samples/):
 ![ScreenShot](images/samples/winamp.gif)  
 ![ScreenShot](images/samples/vaporwave.gif)  
 ![ScreenShot](images/samples/widget.gif)  
+![ScreenShot](images/samples/rainbow_matrix.gif)  
+![ScreenShot](images/samples/Cosmic_Cutie.gif)  
   
   
 Requires imagemagick (convert) to be installed on your server.  

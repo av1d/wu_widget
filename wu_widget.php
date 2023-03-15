@@ -49,6 +49,7 @@ $apiKey = "paste_your_key_here";
 // see images/samples for what they look like.
 
 $skin = "images/skins/classic/";
+//$skin = "images/skins/Cosmic_Cutie/";
 //$skin = "images/skins/cyberpunk/";
 //$skin = "images/skins/cyberspace/";
 //$skin = "images/skins/Frankly/";
@@ -58,6 +59,7 @@ $skin = "images/skins/classic/";
 //$skin = "images/skins/Memphis_Design/";
 //$skin = "images/skins/Memphis_orange/";
 //$skin = "images/skins/OpenWeatherMap/";
+//$skin = "images/skins/rainbow_matrix/";
 //$skin = "images/skins/vaporwave/";
 //$skin = "images/skins/Winamp/";
 //$skin = "images/skins/your-skin-here/";
